@@ -5,8 +5,16 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "react": "18.0.0",
+    "@chakra-ui/icons": "2.0.10",
+    "@chakra-ui/react": "2.3.4",
+    "@emotion/react": "11.10.4",
+    "@emotion/styled": "11.10.4",
+    "@types/react-router-dom": "5.3.3",
+    "axios": "0.27.2",
+    "framer-motion": "7.3.6",
+    "react": "18.3.0-next-f0efa1164-20220901",
     "react-dom": "18.0.0",
+    "react-router-dom": "5.3.3",
     "react-scripts": "4.0.3"
   },
   "devDependencies": {
