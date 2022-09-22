@@ -36,7 +36,3 @@ export const Router: FC = memo(() => {
     </Switch>
   );
 });
-
-// <Route key={route.paht}  exact={route.exact} path={`${url}${route.path}`} >
-// {route.children}
-// </Route>
