@@ -12,7 +12,6 @@ export const Login: FC = memo(() => {
   const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => {
     setUserId(e.target.value);
   };
-
   const onClickLogin = () => {
     login(userId);
   };
@@ -32,8 +31,9 @@ export const Login: FC = memo(() => {
           />
           <PrimaryButton
             onClick={onClickLogin}
-            disabled={userId === "" && true}
             loading={loading}
+            disabled={userId === "" && true}
+            //userIdが””なら(true)なら右(true)を返す
           >
             ログイン
           </PrimaryButton>

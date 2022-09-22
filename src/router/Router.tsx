@@ -13,6 +13,7 @@ export const Router: FC = memo(() => {
       <Route exact path="/">
         <Login />
       </Route>
+
       {/* ホームページルーター */}
       <Route
         path="/home"
@@ -30,6 +31,8 @@ export const Router: FC = memo(() => {
           </Switch>
         )}
       />
+
+      {/* 404ルーター */}
       <Route path="*">
         <Page404 />
       </Route>
