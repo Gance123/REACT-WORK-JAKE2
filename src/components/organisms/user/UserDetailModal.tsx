@@ -37,11 +37,11 @@ export const UserDetailModal: FC<Props> = memo((props) => {
             <Stack spacing={4}>
               <FormControl>
                 <FormLabel>名前</FormLabel>
-                <Input value={user?.name} isReadOnly />
+                <Input value={user?.username} isReadOnly />
               </FormControl>
               <FormControl>
                 <FormLabel>フルネーム</FormLabel>
-                <Input value={user?.username} isReadOnly />
+                <Input value={user?.name} isReadOnly />
               </FormControl>
               <FormControl>
                 <FormLabel>MAIL</FormLabel>

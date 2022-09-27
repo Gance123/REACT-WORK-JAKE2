@@ -47,8 +47,8 @@ export const UserManagement: FC = memo(() => {
               <UserCard
                 id={user.id}
                 image="https://source.unsplash.com/rondom"
-                name={user.name}
-                fulllname={user.username}
+                name={user.username}
+                fulllname={user.name}
                 // = res.date.username
 
                 // ② ①をpropsとして子コンポに渡す
