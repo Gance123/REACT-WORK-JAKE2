@@ -18,14 +18,20 @@ export const UserManagement: FC = memo(() => {
   const { getUsers, loading, users } = useAllUsers();
   const { onSelectUser, selectedUser } = useSelectUser();
 
-  useEffect(() => getUsers(), []);
   //画面表示時に一回だけ動くようにしたいのでuseEffect + []
   // getUsers()・・・axiosで取得したデータをsetUsersでusersに格納していく関数
+  useEffect(() => getUsers(), []);
 
-  const onClickUser = useCallback((id: number) => {
-    onSelectUser({ id, users });
-    onOpen();
-  }, []);
+  /*クリックしたときにuser.idをonSelecteUserのpropsに渡す関数 */
+  // ①idを引数に取る関数を親コンポで作る
+  // ⑥子コンポに　id=users.idが設定され、それを引数に取る
+  const onClickUser = useCallback(
+    (id: number) => {
+      // idとusersをpropsとして渡す
+      onSelectUser({ id: id, users: users, onOpen: onOpen });
+    },
+    [users, onSelectUser, onOpen]
+  );
   // propsとして渡す関数,もしくは更新されない関数は再レンダリングされないようにメモ化
 
   return (
@@ -44,6 +50,8 @@ export const UserManagement: FC = memo(() => {
                 name={user.name}
                 fulllname={user.username}
                 // = res.date.username
+
+                // ② ①をpropsとして子コンポに渡す
                 onClick={onClickUser}
               />
             </WrapItem>
@@ -51,7 +59,7 @@ export const UserManagement: FC = memo(() => {
         </Wrap>
       )}
 
-      <UserDetailModal isOpen={isOpen} onClose={onClose} />
+      <UserDetailModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
     </>
   );
 });

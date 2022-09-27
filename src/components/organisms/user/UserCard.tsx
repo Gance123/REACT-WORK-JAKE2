@@ -21,6 +21,9 @@ export const UserCard: FC<Props> = memo((props) => {
       shadow="md"
       p={4}
       _hover={{ opacity: 0.8, cursor: "pointer" }}
+      // ➂propsに渡された関数を実行する
+      // ➃渡された関数は引数を取る関数なので適した引数を設定する
+      // ⑤適した引数(id)は親コンポで設定したusers.idである
       onClick={() => onClick(id)}
     >
       <Stack textAlign="center">
