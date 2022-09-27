@@ -32,6 +32,7 @@ export const Login: FC = memo(() => {
           <PrimaryButton
             onClick={onClickLogin}
             loading={loading}
+            // chakra-UI
             disabled={userId === "" && true}
             //userIdが””なら(true)なら右(true)を返す
           >
