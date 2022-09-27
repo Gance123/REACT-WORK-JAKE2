@@ -1,6 +1,9 @@
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { FC, memo } from "react";
 
+// import { PrimaryButton } from "../../atoms/button/PrimaryButton";
+// import { useLoginUser } from "../../../hooks/useLoginUser";
+
 type Props = {
   id: number;
   image: string;
@@ -11,6 +14,11 @@ type Props = {
 
 export const UserCard: FC<Props> = memo((props) => {
   const { id, image, name, fulllname, onClick } = props;
+  // const { loginUser } = useLoginUser();
+  // const onClickEdit = () => {
+  //   alert("");
+  // };
+
   return (
     <Box
       as="a"
@@ -40,6 +48,9 @@ export const UserCard: FC<Props> = memo((props) => {
         <Text fontSize="sm" color="gray">
           {fulllname}
         </Text>
+        {/* {loginUser?.isAdmin ? (
+          <PrimaryButton onClick={onClickEdit}>編集</PrimaryButton>
+        ) : null} */}
       </Stack>
     </Box>
   );

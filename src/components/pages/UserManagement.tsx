@@ -12,11 +12,14 @@ import { UserCard } from "../organisms/user/UserCard";
 import { useAllUsers } from "../../hooks/useAllUsers";
 import { useSelectUser } from "../../hooks/useSelectUser";
 import { UserDetailModal } from "../organisms/user/UserDetailModal";
+import { useLoginUser } from "../../hooks/useLoginUser";
 
 export const UserManagement: FC = memo(() => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { getUsers, loading, users } = useAllUsers();
   const { onSelectUser, selectedUser } = useSelectUser();
+  const { loginUser } = useLoginUser();
+  const isAdmin = loginUser?.isAdmin ? true : false;
 
   //画面表示時に一回だけ動くようにしたいのでuseEffect + []
   // getUsers()・・・axiosで取得したデータをsetUsersでusersに格納していく関数
@@ -49,8 +52,6 @@ export const UserManagement: FC = memo(() => {
                 image="https://source.unsplash.com/rondom"
                 name={user.username}
                 fulllname={user.name}
-                // = res.date.username
-
                 // ② ①をpropsとして子コンポに渡す
                 onClick={onClickUser}
               />
@@ -59,7 +60,12 @@ export const UserManagement: FC = memo(() => {
         </Wrap>
       )}
 
-      <UserDetailModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
+      <UserDetailModal
+        isOpen={isOpen}
+        onClose={onClose}
+        user={selectedUser}
+        isAdmin={isAdmin}
+      />
     </>
   );
 });

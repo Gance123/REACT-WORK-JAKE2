@@ -12,6 +12,7 @@ type Props = {
 export const useSelectUser = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
+  // onClickUserで発動する関数
   const onSelectUser = useCallback((props: Props) => {
     //onClickUserでidとusersがpropsに渡ってくる
     const { id, users, onOpen } = props;
